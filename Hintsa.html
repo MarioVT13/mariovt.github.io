@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<!--
+	Massively by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+  <head>
+    <title>Feia Pregnancy</title>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, user-scalable=no"
+    />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <noscript
+      ><link rel="stylesheet" href="assets/css/noscript.css"
+    /></noscript>
+  </head>
+  <body class="is-preload">
+    <!-- Wrapper -->
+    <div id="wrapper">
+      <!-- Header -->
+      <header id="header">
+        <a href="index.html" class="logo">Portfolio</a>
+      </header>
+
+      <!-- Nav -->
+      <nav id="nav">
+        <ul class="links">
+          <li class="active"><a href="index.html">Projects</a></li>
+          <li><a href="Resume.html">Resume</a></li>
+        </ul>
+        <ul class="icons">
+          <a
+            href="https://www.linkedin.com/in/mariovt"
+            class="icon brands fa-linkedin"
+            target="_blank"
+            ><span class="label">LinkedIn</span></a
+          >
+        </ul>
+      </nav>
+
+      <!-- Main -->
+      <div id="main">
+        <!-- Post -->
+        <section class="post">
+          <header class="major">
+            <h1>
+              <a href="https://www.hintsa.com/app/" target="_blank">Hintsa</a>
+            </h1>
+            <p>
+                The Hintsa mobile (health) app offers digital coaching plans created by top performance coaches, 
+                combining the unique Hintsa methodology with years of experience coaching at the elite athlete and senior executive levels. <br/><br/>
+                <a href="https://www.hintsa.com/app/" target="_blank">Hintsa app official web page</a>
+            </p>
+          </header>
+          <div>
+            <a href="https://www.hintsa.com/app/" target="_blank">
+              <img
+                src="images/hintsa-one.png"
+                style="float: left; margin-right: 30px"
+                alt=""
+                width="240"
+                height="480"
+              />
+            </a>
+          </div>
+          <p>
+            It's a neat package of various health programs and other professional advice, tailored to the specific needs of each user.
+            The focus is on the improvement of the physical and cognitive performance of the individual.
+          </p>
+          <p>
+            This app is currently on the market for both android and ios.
+          </p>
+          <p>
+            I was given numerous front-end related tasks. Among them were: <br/>
+            - adding new screens, following specific design guidelines and
+            making sure they are properly supported on all relevant devices (including accessibility modes) <br/>
+            - applying animation and other special effects for additional flavour <br/>
+            - solving challenging issues related to the use of third-party libraries. <br/>
+            - fixing various bugs that the QA team has reported 
+          </p>
+        </section>
+        <section>
+            <div>
+                <a href="https://www.hintsa.com/app/" target="_blank">
+                    <img
+                    src="images/hintsa-two.png"
+                    alt=""
+                    width="240"
+                    height="520"
+                    />
+                </a>
+                <a href="https://www.hintsa.com/app/" target="_blank">
+                    <img
+                    style="margin-left: 2%;"
+                    src="images/hintsa-three.png"
+                    alt=""
+                    width="520"
+                    height="520"
+                    />
+                </a>
+            </div>
+        </section>
+
+        <section>
+            <h5>Code snippet from ActivityLibrary screen - functional component</h5>
+            <pre class="line-numbers">
+                <code class="language-css">
+                    ...
+
+                    interface Props extends IBoxProps {
+                        contentCategories: LibraryCategory[]
+                      }
+                      export default function ActivityLibrary({ contentCategories, ...props }: Props) {
+                        const dispatch = useAppDispatch()
+                        const isVisible = useIsFocused()
+                      
+                        const [categories, setCategories] = useState&ltLibraryCategory[]>([])
+                        const [selectedCategory, setSelectedCategory] = useState&ltnumber>(0)
+                      
+                        useEffect(() => {
+                          isVisible && getUserActivities()
+                        }, [isVisible, contentCategories])
+                      
+                        const getUserActivities = async () => {
+                          await dispatch(getAllUserActivities())
+                          setCategories(contentCategories)
+                        }
+                      
+                        const currentCategory: LibraryCategory = categories[selectedCategory] ?? []
+                        const subCategories: LibrarySubCategory[] = currentCategory?.subCategories ?? []
+                      
+                        if (!categories?.length) return &ltActivityLibrarySkeleton />
+                      
+                        return (
+                          &ltVStack h="full" w="full" {...props}>
+                            &ltCategoryLibraryBar
+                              categories={categories}
+                              my="4"
+                              selectedCategory={selectedCategory}
+                              onSelectedCategory={setSelectedCategory}
+                            />
+                      
+                            &ltActivityCarousel subCategories={subCategories} />
+                          &lt/VStack>
+                        )
+                      }
+                </code>
+            </pre>
+        </section>
+
+        <section>
+          <h5>Code snippet from ActivityCarousel - subcomponent of ActivityLibrary</h5>
+          <pre class="line-numbers">
+          <code class="language-css">
+
+            ...
+  
+            interface Props {
+                subCategories: LibrarySubCategory[]
+              }
+              
+              const isIOS = Platform.OS === 'ios'
+              const isWeb = Platform.OS === 'web'
+              
+              export default function ActivityCarousel({ subCategories }: Props) {
+                const renderActivityItem = useCallback(
+                  ({ item }: ListRenderItemInfo&ltUserActivityModel>) => {
+                    const imageSource = item?.activity?.background?.contentUrl
+                    const imageBgColor = item?.activity?.background?.color
+                    const name = item?.activity?.name ?? ''
+                    const description = item?.activity?.description ?? ''
+                    const userActivitySk = item?.sk ?? ''
+              
+                    return (
+                        &ltLink asChild href={`/activity-selector/${userActivitySk}`}>
+                        &ltPressable
+                          key={userActivitySk}
+                          bg="#FFFFFF"
+                          borderColor="gray.50"
+                          borderWidth={1}
+                          overflow="hidden"
+                          p="4"
+                          rounded="lg"
+                          w={isWeb ? '72' : widthPercentageToDP(isIOS ? '77%' : '75%')}
+                        >
+                        &ltVStack space="2">
+                            &ltAspectRatio ratio={16 / 9} w="full">
+                                &ltLazyImage bgColor={imageBgColor} h="full" overflow="hidden" rounded="md" src={imageSource} w="full">
+                                &ltActivityStateBadge bottom="-8" left="-8" position="absolute" state={item?.state} />
+                            &lt/LazyImage>
+                            &lt/AspectRatio>
+              
+                            &ltText testID={tID(`activity_${name}`)}>{name}&lt/Text>
+              
+                            &ltText color="darkTextSecondary" fontSize="sm" numberOfLines={2}>
+                              {description}
+                            &lt/Text>
+                          &lt/VStack>
+                        &lt/Pressable>
+                      &lt/Link>
+                    )
+                  },
+                  [subCategories]
+                )
+              
+                const renderCarouselCategory = useCallback((subCategory: LibrarySubCategory, index: number) => {
+                  const activities = subCategory?.activities ?? []
+                  const subCatName = subCategory?.name ?? ''
+              
+                  return (
+                    &ltVStack key={`${subCatName}_${index}`} py="2">
+                       &ltPresenceTransition animate={{ opacity: 1, transition: { duration: 500 } }} initial={{ opacity: 0 }} visible>
+                         &ltHeading mx="4" size="h4">
+                          {subCatName}
+                        &lt/Heading>
+                      &lt/PresenceTransition>
+              
+                      &ltAnimatedBox
+                        entering={FadeInRight.delay((index + 1) * 200)
+                          .duration(300)
+                          .springify()
+                          .mass(2)}
+                      >
+                        &ltFlatList
+                          contentContainerStyle={activityContainerStyle}
+                          data={activities}
+                          horizontal
+                          keyExtractor={keyExtractor}
+                          removeClippedSubviews
+                          renderItem={renderActivityItem}
+                          showsHorizontalScrollIndicator={false}
+                        />
+                      &lt/AnimatedBox>
+                    &lt/VStack>
+                  )
+                }, [])
+              
+                return (
+                  &ltScrollView contentContainerStyle={parentContainerStyle} h="full" showsVerticalScrollIndicator={false}>
+                    {subCategories.map(renderCarouselCategory)}
+                  &lt/ScrollView>
+                )
+              }
+              
+              const keyExtractor = (item: UserActivityModel, index: number) => `${item?.sk}${index}`
+              
+              const AnimatedBox = Animated.createAnimatedComponent(Box)
+              const parentContainerStyle: StyleProp&ltViewStyle> = { gap: 8 }
+              const activityContainerStyle: StyleProp&ltViewStyle> = { gap: 18, paddingVertical: 8, paddingHorizontal: 16 }
+
+          </code>
+        </pre>
+        </section>
+
+        <section>
+            <h5>Code snippet from AudioPlayback reusable component - used for all audio playback with controls</h5>
+            <pre class="line-numbers">
+            <code class="language-css">
+                ...
+
+                export const AudioPlayback = ({ recording, uri, ...props }: Props) => {
+                    const startMedia = useMediaManager()
+                  
+                    const [playbackStatus, setPlaybackStatus] = useState&ltAVPlaybackStatus>()
+                    const [sound, setSound] = useState&ltAudio.Sound | undefined>()
+                    const [hasFinished, setFinished] = useState(false)
+                    const [totalDuration, setTotalDuration] = useState(getMinutesSecondsFromMilliseconds(0))
+                    const [elapsedTime, setElapsedTime] = useState&ltstring>('00:00')
+                    const positionMillisRef = useRef&ltnumber>(0)
+                    const wasPlayingBeforeDraggingRef = useRef&ltboolean>(false)
+                  
+                    useEffect(() => {
+                      if (playbackStatus?.isLoaded && playbackStatus?.positionMillis > 0) {
+                        positionMillisRef.current = playbackStatus?.positionMillis
+                      }
+                      if (hasFinished) {
+                        positionMillisRef.current = 0
+                      }
+                    }, [playbackStatus, hasFinished])
+                  
+                    useEffect(() => {
+                      async function loadSound() {
+                        if (recording?.sound) {
+                          recording.sound.setOnPlaybackStatusUpdate(onPlaybackStatusUpdate)
+                          setSound(recording.sound)
+                          setTotalDuration(recording.duration)
+                          return
+                        }
+                  
+                        if (uri) {
+                          const { sound } = await Audio.Sound.createAsync(
+                            { uri },
+                            { androidImplementation: 'MediaPlayer' }, // needed for proper playback on Android
+                            onPlaybackStatusUpdate
+                          )
+                          setSound(sound)
+                        }
+                      }
+                  
+                      loadSound()
+                    }, [recording?.sound, uri])
+                  
+                    const onPlaybackStatusUpdate = useCallback(
+                      (playback: AVPlaybackStatus) => {
+                        if (!playback.isLoaded) return
+                  
+                        if (!hasFinished) setPlaybackStatus(playback)
+                        // Update total duration
+                        const durationMillis = playback.durationMillis || 0
+                        if (durationMillis) {
+                          setTotalDuration(getMinutesSecondsFromMilliseconds(durationMillis))
+                        }
+                  
+                        // Update elapsed time.
+                        const elapsedMillis = playback?.positionMillis || 0
+                        if (elapsedMillis) {
+                          setElapsedTime(getMinutesSecondsFromMilliseconds(elapsedMillis))
+                        }
+                  
+                        if (Math.ceil(playback?.positionMillis) >= Math.floor(durationMillis) || playback.didJustFinish) {
+                          setFinished(true)
+                        }
+                      },
+                      [hasFinished]
+                    )
+                  
+                    const onPlay = useCallback(async () => {
+                      if (!playbackStatus?.isLoaded) return
+                  
+                      if (!playbackStatus.isPlaying) {
+                        startMedia(sound)
+                  
+                        // The sound is currently paused
+                        if (hasFinished) {
+                          // The sound has finished playing
+                          setFinished(false)
+                          setPlaybackStatus(status => (status?.isLoaded ? { ...status, positionMillis: 0 } : status))
+                          sound?.playFromPositionAsync(0) // Play from the start
+                        } else {
+                          // The sound is paused in the middle
+                          sound?.playFromPositionAsync(positionMillisRef.current) // Play from the current position
+                        }
+                      } else {
+                        await sound?.pauseAsync() // Pause the sound
+                      }
+                    }, [playbackStatus, sound, hasFinished])
+                  
+                    const onSeek = useCallback(
+                      async (value: number) => {
+                        const wasPlaying = !!(playbackStatus?.isLoaded && playbackStatus?.isPlaying)
+                  
+                        if (wasPlaying) {
+                          await sound?.pauseAsync() // Ensure audio is paused before seeking
+                        }
+                        positionMillisRef.current = value
+                        setElapsedTime(getMinutesSecondsFromMilliseconds(value))
+                  
+                        if (wasPlaying) {
+                          await sound?.playFromPositionAsync(value) // Only play if it was originally playing
+                        }
+                      },
+                      [playbackStatus?.isLoaded, playbackStatus?.isLoaded && playbackStatus?.isPlaying, sound]
+                    )
+                  
+                    const isPlaying = (playbackStatus?.isLoaded && playbackStatus?.isPlaying) || false
+                    const sliderMaxValue = (playbackStatus?.isLoaded && playbackStatus?.durationMillis) || 1000
+                  
+                    return (
+                      &ltHStack alignItems="center" p="2" rounded="full" space="4" {...props}>
+                        &ltIconButton
+                          _icon={{ color: 'white', as: MaterialIcons, name: isPlaying ? 'pause' : 'play-arrow', size: 'sm' }}
+                          bg="black"
+                          rounded="full"
+                          size="10"
+                          onPress={onPlay}
+                        />
+                        &ltSlider
+                          defaultValue={positionMillisRef.current}
+                          flex="1"
+                          flexDir="row"
+                          maxValue={sliderMaxValue}
+                          minValue={0}
+                          value={positionMillisRef.current}
+                          onChange={onSeek}
+                        >
+                          &ltSlider.Track>
+                            &ltSlider.FilledTrack />
+                          &lt/Slider.Track>
+                          &ltSlider.Thumb
+                            size="5"
+                            onResponderEnd={() => {
+                              // On stop dragging, only resume audio if it was playing before dragging
+                              if (wasPlayingBeforeDraggingRef.current) {
+                                sound?.playFromPositionAsync(positionMillisRef.current)
+                              }
+                            }}
+                            onResponderStart={() => {
+                              wasPlayingBeforeDraggingRef.current = (playbackStatus?.isLoaded && playbackStatus?.isPlaying) || false
+                  
+                              // Pause the audio when dragging the slider, to handle control over to the user
+                              sound?.pauseAsync()
+                            }}
+                            onStartShouldSetResponder={() => true}
+                          />
+                        &lt/Slider>
+                        &ltText fontFamily="mono">{positionMillisRef.current === 0 ? totalDuration : elapsedTime}&lt/Text>
+                      &lt/HStack>
+                    )
+                  }
+
+            </code>
+            </pre>
+
+          <p class="active"><a href="index.html">Back to projects</a></p>
+        </section>
+      </div>
+
+      <!-- Copyright -->
+      <div id="copyright">
+        <ul>
+          <li>&copy; Mario Vatkov</li>
+          <li>Design: <a href="https://html5up.net">HTML5 UP template</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery.scrollex.min.js"></script>
+    <script src="assets/js/jquery.scrolly.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
+  </body>
+</html>
