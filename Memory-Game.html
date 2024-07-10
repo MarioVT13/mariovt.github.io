@@ -6,7 +6,7 @@
 -->
 <html>
   <head>
-    <title>Get Movies Info</title>
+    <title>Memory Game</title>
     <meta charset="utf-8" />
     <meta
       name="viewport"
@@ -46,32 +46,53 @@
         <!-- Post -->
         <section class="post">
           <header class="major">
-            <h1>Get Movies Info</h1>
-            <h3>(Mobile Demo App)</h3>
+            <h1>Memory Game</h1>
+            <h3>(Mobile Demo Game)</h3>
           </header>
           <div>
             <a
-              href="https://github.com/MarioVT13/get-movies.git"
+              href="https://github.com/MarioVT13/memory-game.git"
               target="_blank"
             >
               <img
-                src="images/get-movies-splash.png"
+                src="images/memory-gameplay.jpg"
                 style="float: left; margin-right: 30px"
                 alt=""
                 width="220"
-                height="440"
+                height="460"
               />
             </a>
           </div>
+
           <p>
-            A simple demo app for viewing movie info. It was developed for about
-            3, using React Native Expo.
+            A simple demo game for exercising the memory. It was developed for
+            about 3 day, using React Native Expo.
+          </p>
+          <h3>Game Mechanics:</h3>
+          <p>
+            - The card stack is always shuffled again when a new round
+            starts.<br />
+
+            - Restart button allows the user to reset the game and starts a new
+            game round.<br />
+
+            - The user is allowed to flip a single card (by tapping on it) that
+            changes the card state to visible. The card's image stays visible
+            until the user has tapped on another card in the grid.<br />
+
+            - If there is a match, the 2 currently flipped cards will be
+            eliminated from the game.<br />
+
+            - If both cards don’t match, they will be flipped again (faced down)
+            after 2 seconds and return to their initial state (hidden).<br />
+
+            - Flipping more than 2 cards per round is not allowed!
           </p>
           <p>
             Please follow the
             <a
               style="color: blue"
-              href="https://github.com/MarioVT13/get-movies.git"
+              href="https://github.com/MarioVT13/memory-game.git"
               target="_blank"
               >link</a
             >
@@ -82,64 +103,36 @@
             Full link to GitHub:
             <a
               style="color: blue"
-              href="https://github.com/MarioVT13/get-movies.git"
+              href="https://github.com/MarioVT13/memory-game.git"
               target="_blank"
-              >https://github.com/MarioVT13/get-movies.git</a
+              >https://github.com/MarioVT13/memory-game.git</a
             >
-            <h3>Objective:</h3>
-            <p>
-              Create a React Native mobile app that fetches popular movies from The
-Movie Database API and displays them in a list view. Upon clicking a movie, the app should fetch additional details about the movie and display them in a new screen.
-            </p>
           </p>
-        </section>
-
-        <section class="post">
-          <h3>Technical features</h3>
+          <h3>Additional features</h3>
           <p>
-            - React Navigation (screens are handled in stack navigator)<br />
+            - The user is allowed to choose between multiple levels of
+            difficulties.<br />
 
-            - State management with React Context<br />
+            - Easy (2x4 grid) | 8 cards (4 different images)<br />
 
-            - Custom hooks for API calls<br />
+            - Medium (3x4 grid) | 12 cards (6 different images)<br />
 
-            - Custom Fonts (loaded on splash screen)<br />
-
-            - "Pull to refresh" dynamic list functionality<br />
-
-            - Infinite list load enabled<br />
-
-            - Handling of timestamps with "dayjs"<br />
-
-            - Multiple animations added<br />
-
-            - Detailed error and loading handling<br />
-            ...
+            - Hard (4x4 grid) | 16 cards (8 different images)<br />
           </p>
         </section>
+
         <section class="post">
           <div>
             <a
-              href="https://github.com/MarioVT13/get-movies.git"
+              href="https://github.com/MarioVT13/memory-game.git"
               target="_blank"
             >
               <img
-                src="images/demo-screen1.jpg"
+                src="images/memory-gameplay-win.jpg"
                 style="margin-right: 30px"
                 alt=""
                 width="220"
-                height="440"
-              />
-            </a>
-            <a
-              href="https://github.com/MarioVT13/get-movies.git"
-              target="_blank"
-            >
-              <img
-                src="images/demo-screen2.jpg"
-                alt=""
-                width="220"
-                height="440"
+                height="460"
               />
             </a>
           </div>
