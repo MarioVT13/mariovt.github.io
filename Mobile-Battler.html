@@ -71,7 +71,7 @@
               target="_blank"
               >Nutaku</a
             >
-            app store.
+            store.
           </p>
           <p>
             I was given numerous front-end related tasks. Among them were:
@@ -101,59 +101,52 @@
           </p>
         </section>
 
-        <!-- <section class="post">
-          <h3>Technical features</h3>
-          <p>
-            - React Navigation (screens are handled in stack navigator)<br />
-
-            - State management with React Context<br />
-
-            - Custom hooks for API calls<br />
-
-            - Custom Fonts (loaded on splash screen)<br />
-
-            - "Pull to refresh" dynamic list functionality<br />
-
-            - Infinite list load enabled<br />
-
-            - Handling of timestamps with "dayjs"<br />
-
-            - Multiple animations added<br />
-
-            - Detailed error and loading handling<br />
-            ...
-          </p>
-        </section>
         <section class="post">
-          <div>
+
+          <div style="float:right; width:30%; max-width:460px; margin:0 0 1rem 1.5rem;">
             <a
-              href="https://github.com/MarioVT13/get-movies.git"
+              href="https://www.nutaku.net/games/harem-heroes-mobile-battler"
               target="_blank"
             >
-              <img
-                src="images/demo-screen1.jpg"
-                style="margin-right: 30px"
-                alt=""
-                width="220"
-                height="440"
-              />
-            </a>
-            <a
-              href="https://github.com/MarioVT13/get-movies.git"
-              target="_blank"
-            >
-              <img
-                src="images/demo-screen2.jpg"
-                alt=""
-                width="220"
-                height="440"
-              />
+              <video
+                style="width:100%; height:auto; border-radius:8px; box-shadow:0 12px 32px rgba(0,0,0,0.15); display:block;"
+                muted loop autoplay playsinline
+                class="video"
+                preload="metadata"
+                playsinline
+                poster="images/mobile-battler-poster.jpg"
+              >
+                <source src="videos/mobile-battler-demo.webm" type="video/webm" />
+                <source src="videos/mobile-battler-demo.mp4" type="video/mp4" />
+                Sorry—your browser doesn’t support embedded videos. 
+              </video>
             </a>
           </div>
+
+          <h3>Battle System (prototype)</h3>
+          <p>
+            I developed the FE battle system in coop with the BE team. 
+            Behind the scenes, it is turned based and it relies on "ping-pong" websocket events.
+            <br /><br />
+            This approach has the following benefits:<br />
+            - simplicity: updates are served in portions for each turn.<br />
+            - control: easier to track progress of character actions and animation related processes.<br />
+            - performance: prevention of running too many tasks at the same time.<br />
+            <br />
+            The main character animations are loaded via sprite sheet player.<br />
+            For the rest of the animations, different techniques and libraries have been used.
+          </p>
+
+          <p>. . . . . . . . . . . . . . . . . . . . . . . . . . . . . .</p>
           <br />
           <p class="active"><a href="index.html">Back to projects</a></p>
+        </section>
+        <!-- <section class="post">
+          <div>
+            
+          </div>
+          <p class="active"><a href="index.html">Back to projects</a></p>
         </section> -->
-        <p class="active"><a href="index.html">Back to projects</a></p>
       </div>
 
       <!-- Copyright -->
