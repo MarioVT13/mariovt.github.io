@@ -102,8 +102,9 @@
         </section>
 
         <section class="post">
+          <h3>Battle System (prototype)</h3>
 
-          <div style="float:right; width:30%; max-width:460px; margin:0 0 1rem 1.5rem;">
+          <div style="float:right; width:240px; max-width:460px; margin:0 0 1rem 1.5rem;">
             <a
               href="https://www.nutaku.net/games/harem-heroes-mobile-battler"
               target="_blank"
@@ -122,8 +123,7 @@
               </video>
             </a>
           </div>
-
-          <h3>Battle System (prototype)</h3>
+          
           <p>
             I developed the FE battle system in coop with the BE team. 
             Behind the scenes, it is turned based and it relies on "ping-pong" websocket events.
@@ -139,14 +139,66 @@
 
           <p>. . . . . . . . . . . . . . . . . . . . . . . . . . . . . .</p>
           <br />
+          <!-- <p class="active"><a href="index.html">Back to projects</a></p> -->
+        </section>
+        <section class="post">
+          <h3>Some more custom animations that I put together for this project...</h3>
+          
+          <div style="float:left; width:400px; max-width:460px; margin:0 0 0 0;">
+            <a href="videos/stars-anim.mp4" download="stars-anim.mp4" target="_blank" style="display:block; text-decoration:none;">
+              <video
+                id="starsVideo"
+                style="width:100%; height:auto; border-radius:8px; box-shadow:0 12px 32px rgba(0,0,0,0.15); display:block; pointer-events:none;"
+                muted
+                autoplay
+                playsinline
+                preload="metadata"
+                poster="images/stars-anim.jpg"
+              >
+                <source src="videos/stars-anim.webm" type="video/webm" />
+                <source src="videos/stars-anim.mp4" type="video/mp4" />
+                Sorry—your browser doesn’t support embedded videos.
+              </video>
+            </a>
+
+            <script>
+            (function () {
+              const v = document.getElementById('starsVideo');
+              const START_AT = 0.7;         // seconds
+              const EPS = 0.08;           // small threshold for timing comparisons
+
+              // Jump to 0.7s once metadata (duration) is known
+              v.addEventListener('loadedmetadata', () => {
+                // Some browsers need a tick before setting currentTime
+                const jump = () => { try { v.currentTime = START_AT; } catch(e){} };
+                jump();
+                // If autoplay already started at 0, enforce the jump on first frames
+                const fixFirstFrames = (e) => {
+                  if (v.currentTime < START_AT - EPS) {
+                    jump();
+                  } else {
+                    v.removeEventListener('timeupdate', fixFirstFrames);
+                  }
+                };
+                v.addEventListener('timeupdate', fixFirstFrames);
+              }, { once: true });
+
+              // Emulate looping from 0.7s → end → back to 0.7s
+              // (Don't use the "loop" attribute; some browsers loop back to 0)
+              v.addEventListener('timeupdate', () => {
+                if (!isFinite(v.duration) || v.duration === 0) return;
+                if (v.currentTime >= v.duration - EPS) {
+                  v.currentTime = START_AT;
+                  v.play(); // keep it seamless
+                }
+              });
+            })();
+            </script>
+          </div>
+
+          <p><br /><br /><br /><br /><br /><br /><br /><br /></p>
           <p class="active"><a href="index.html">Back to projects</a></p>
         </section>
-        <!-- <section class="post">
-          <div>
-            
-          </div>
-          <p class="active"><a href="index.html">Back to projects</a></p>
-        </section> -->
       </div>
 
       <!-- Copyright -->
