@@ -49,18 +49,23 @@
             <h1>Get Movies Info</h1>
             <h3>(Mobile Demo App)</h3>
           </header>
-          <div>
+          <div style="float:left; width:240px; max-width:460px; margin:0 1rem 1.5rem 0;">
             <a
               href="https://github.com/MarioVT13/get-movies.git"
               target="_blank"
             >
-              <img
-                src="images/get-movies-splash.png"
-                style="float: left; margin-right: 30px"
-                alt=""
-                width="220"
-                height="440"
-              />
+              <video
+                style="width:100%; height:auto; border-radius:8px; box-shadow:0 12px 32px rgba(0,0,0,0.15); display:block;"
+                muted loop autoplay playsinline
+                class="video"
+                preload="metadata"
+                playsinline
+                poster="images/movies-demo.jpg"
+              >
+                <source src="videos/movies-demo.webm" type="video/webm" />
+                <source src="videos/movies-demo.mp4" type="video/mp4" />
+                Sorry—your browser doesn’t support embedded videos. 
+              </video>
             </a>
           </div>
           <p>
@@ -91,11 +96,12 @@
               Create a React Native mobile app that fetches popular movies from The
 Movie Database API and displays them in a list view. Upon clicking a movie, the app should fetch additional details about the movie and display them in a new screen.
             </p>
+            <p>. . . . . . . . . . . . . . . . . . . . . . . . . . . . . .</p>
           </p>
         </section>
 
         <section class="post">
-          <h3>Technical features</h3>
+          <h3>Specs</h3>
           <p>
             - React Navigation (screens are handled in stack navigator)<br />
 
