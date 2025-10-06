@@ -17,6 +17,17 @@
       ><link rel="stylesheet" href="assets/css/noscript.css"
     /></noscript>
   </head>
+
+  <style>
+    @media (max-width: 736px) {
+      #intro .actions { 
+        display: flex !important; 
+        justify-content: center;
+        gap: 0.75rem;
+      }
+    }
+  </style>
+
   <body class="is-preload">
     <!-- Wrapper -->
     <div id="wrapper" class="fade-in">
@@ -24,15 +35,38 @@
       <div id="intro">
         <h1>Mario Vatkov<br /></h1>
 
-        <ul class="actions">
+        <ul class="actions" style="display:flex;justify-content:center;gap:0.75rem;">
           <li>
-            <a
-              href="#header"
-              class="button icon solid solo fa-arrow-down scrolly"
-              >Continue</a
-            >
+            <a href="#header"
+              class="button scrolly"
+              id="continueBtn"
+              title="Continue"
+              style="
+                display:inline-flex!important;align-items:center!important;justify-content:center!important;
+                width:4rem!important;height:4rem!important;aspect-ratio:1/1;
+                padding:0!important;border-radius:50%!important;line-height:1!important;flex:0 0 auto!important;
+                -webkit-tap-highlight-color: transparent;   /* kill square tap flash */
+                -webkit-touch-callout: none;                /* no callout on long-press */
+                outline: none;                              
+                user-select: none;                           /* avoid text selection flash */
+                touch-action: manipulation;                  /* faster tap, no 300ms delay */
+              ">
+              <!-- Use the SVG or text arrow you chose -->
+              <svg viewBox="0 0 24 24" width="60%" height="60%" aria-hidden="true"><path d="M12 16a1 1 0 0 1-.7-.29l-6-6a1 1 0 1 1 1.4-1.42L12 13.59l5.3-5.3a1 1 0 1 1 1.4 1.42l-6 6A1 1 0 0 1 12 16z" fill="currentColor"/></svg>
+            </a>
           </li>
         </ul>
+
+        <script>
+          // Drop focus after touch/click so it doesn't stay blue on mobile
+          (function () {
+            var b = document.getElementById('continueBtn');
+            if (!b) return;
+            b.addEventListener('touchend', function(){ this.blur(); }, { passive: true });
+            b.addEventListener('click',     function(){ this.blur(); });
+          })();
+        </script>
+
       </div>
 
       <!-- Header -->

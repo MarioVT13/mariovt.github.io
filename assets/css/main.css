@@ -4687,3 +4687,56 @@ input, select, textarea {
 		}
 
 	}
+
+	@media (max-width: 736px) {
+		/* show the actions row on mobile */
+		#intro .actions {
+			display: flex !important;
+			justify-content: center;
+			gap: 0.75rem;
+		}
+
+		/* cancel the template's "make buttons 100% width" rule for this one */
+			#intro .actions:not(.fixed) li > * {
+			width: auto !important;
+		}
+
+		/* enforce the SOLO pill sizing/text-hiding */
+		#intro .actions .button.icon.solo {
+			width: 4rem !important;
+			height: 4rem !important;
+			line-height: 4rem !important;
+			padding: 0 !important;
+			text-indent: 4rem !important; /* push label out of view */
+			overflow: hidden !important;
+			white-space: nowrap !important;
+			flex: 0 0 auto !important;
+			display: inline-block !important;
+		}
+
+		/* center the Font Awesome glyph inside the pill */
+		#intro .actions .button.icon.solo:before {
+			margin: 0 !important;
+			text-indent: 0 !important;
+		}
+	}
+
+	/* Keep focus ring for keyboard users */
+	#continueBtn:focus-visible {
+		outline: 2px solid #18bfef;
+		outline-offset: 2px;
+		border-radius: 50%;
+	}
+
+	/* Custom circular press feedback on touch */
+	@media (hover: none) and (pointer: coarse) {
+		#continueBtn { -webkit-tap-highlight-color: transparent; }
+		#continueBtn { position: relative; }
+		#continueBtn:active::after {
+		content: "";
+		position: absolute;
+		inset: 0;
+		border-radius: 50%;
+		box-shadow: inset 0 0 0 2px rgba(24,191,239,0.6);
+		}
+	}
