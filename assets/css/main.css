@@ -4719,6 +4719,21 @@ input, select, textarea {
 			margin: 0 !important;
 			text-indent: 0 !important;
 		}
+
+		#main .posts .actions.special {
+			justify-content: center;         /* center the button */
+			width: auto;                     /* don't force full row width */
+			margin-left: 0;                  /* cancel list's negative margin */
+		}
+		#main .posts .actions.special li {
+			flex: 0 0 auto !important;       /* stop flex-grow */
+			width: auto !important;
+			padding: 0 !important;
+		}
+		#main .posts .actions.special li > * {
+			width: auto !important;          /* defeat the 100% rule */
+			padding: 0 1.5rem;               /* normal button padding */
+		}
 	}
 
 	/* Keep focus ring for keyboard users */
