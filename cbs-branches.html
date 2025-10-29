@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<!--
+	Massively by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+  <head>
+    <title>CBS Bank Branches</title>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, user-scalable=no"
+    />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <noscript
+      ><link rel="stylesheet" href="assets/css/noscript.css"
+    /></noscript>
+  </head>
+  <body class="is-preload">
+    <!-- Wrapper -->
+    <div id="wrapper">
+      <!-- Header -->
+      <header id="header">
+        <a href="index.html" class="logo">Portfolio</a>
+      </header>
+
+      <!-- Nav -->
+      <nav id="nav">
+        <ul class="links">
+          <li class="active"><a href="index.html">Projects</a></li>
+          <li><a href="Resume.html">Resume</a></li>
+        </ul>
+        <ul class="icons">
+          <a
+            href="https://www.linkedin.com/in/mariovt"
+            class="icon brands fa-linkedin"
+            target="_blank"
+            ><span class="label">LinkedIn</span></a
+          >
+        </ul>
+      </nav>
+
+      <!-- Main -->
+      <div id="main">
+        <!-- Post -->
+        <section class="post">
+          <header class="major">
+            <h1>CBS Branches</h1>
+            <h3>(Mobile Demo App)</h3>
+          </header>
+          <div style="float:left; width:240px; max-width:460px; margin:0 1rem 1.5rem 0;">
+            <a
+              href="https://github.com/MarioVT13/cbs-branches.git"
+              target="_blank"
+            >
+              <video
+                style="width:100%; height:auto; border-radius:8px; box-shadow:0 12px 32px rgba(0,0,0,0.15); display:block;"
+                muted loop autoplay playsinline
+                class="video"
+                preload="metadata"
+                playsinline
+                poster="images/branches.jpg"
+              >
+                <source src="videos/branches.webm" type="video/webm" />
+                <source src="videos/branches.mp4" type="video/mp4" />
+                Sorry—your browser doesn’t support embedded videos. 
+              </video>
+            </a>
+          </div>
+          <p>
+            A minimal, production-minded demo that lists bank branches and shows details with a search filter and an embedded map. 
+            Optional toggle to display ATMs on the same map.
+          </p>
+          <p>
+            Client: 
+            <a
+              style="color: blue" 
+              href="https://ebank.capitalbank.com.mk/digital-edge/Identity/Login?language=en-GB" 
+              target="_blank"
+            >
+              Capital Bank Skopje (CBS)
+            </a>
+          </p>
+          <p>
+            Please follow the
+            <a
+              style="color: blue"
+              href="https://github.com/MarioVT13/cbs-branches.git"
+              target="_blank"
+              >link</a
+            >
+            to the GitHub repo where you can download and run the app. This
+            would also allow you to inspect the code.
+          </p>
+          <p>
+            <h3>Features & Specs:</h3>
+            <p>
+              - Expo Router (v3) — file-based navigation<br /> (/app/index.tsx → list, /app/branch/[id].tsx → details)<br />
+
+              - React Query (@tanstack/react-query) — fetching, caching, loading/error states<br />
+
+              - Cached queries for branches/ATMs; pull-to-refresh on the list<br />
+
+              - Zod — runtime API validation + inferred TS types<br />
+
+              - Search / Filter — debounced text search (name, city, address)<br />
+
+              - Map (react-native-maps) — branch marker + optional ATM markers<br />
+
+              - ATMs fetched on demand via enabled: showATMs<br />
+
+              - TypeScript — strict types across API & components<br />
+
+              - Clean UX — small reusable Loading/Error components, minimal styles<br />
+
+              - Platform: React Native (Expo SDK ≥ 54), iOS & Android<br />
+
+              - Language: TypeScript<br />
+
+              - Libs: expo-router, @tanstack/react-query, axios, zod, react-native-maps<br />
+
+              - Style: React Native core components<br />            
+            </p>
+          </p>
+        </section>
+
+        
+        <section class="post">
+          <div>
+            <a
+              href="https://github.com/MarioVT13/cbs-branches.git"
+              target="_blank"
+            >
+              <img
+                src="images/branches2.jpg"
+                style="margin-right: 30px"
+                alt=""
+                width="260"
+                height="600"
+              />
+            </a>
+          </div>
+          <br />
+
+          <p class="active"><a href="index.html">Back to projects</a></p>
+        </section>
+      </div>
+
+      <!-- Copyright -->
+      <div id="copyright">
+        <ul>
+          <li>&copy; Mario Vatkov</li>
+          <li>
+            Design:
+            <a href="https://html5up.net" target="_blank">HTML5 UP template</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery.scrollex.min.js"></script>
+    <script src="assets/js/jquery.scrolly.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
+  </body>
+</html>
