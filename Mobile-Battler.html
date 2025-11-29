@@ -32,12 +32,22 @@
           <li><a href="Resume.html">Resume</a></li>
         </ul>
         <ul class="icons">
-          <a
-            href="https://www.linkedin.com/in/mariovt"
-            class="icon brands fa-linkedin"
-            target="_blank"
-            ><span class="label">LinkedIn</span></a
-          >
+          <li>
+            <a
+              href="https://www.linkedin.com/in/mariovt"
+              class="icon brands fa-linkedin"
+              target="_blank"
+              ><span class="label">LinkedIn</span></a
+            >
+          </li>
+          <li>
+            <a
+              href="https://www.github.com/MarioVT13"
+              class="icon brands fa-github"
+              target="_blank"
+              ><span class="label">GitHub</span></a
+            >
+          </li>
         </ul>
       </nav>
 
@@ -49,14 +59,30 @@
             <h1>Mobile Battler</h1>
             <h3>(Mobile Game - part of the Harem/Hentai Heroes Franchise)</h3>
           </header>
-          <div style="float:left; width:240px; max-width:460px; margin:0 1rem 1.5rem 0;">
+          <div
+            style="
+              float: left;
+              width: 240px;
+              max-width: 460px;
+              margin: 0 1rem 1.5rem 0;
+            "
+          >
             <a
               href="https://www.nutaku.net/games/harem-heroes-mobile-battler"
               target="_blank"
             >
               <video
-                style="width:100%; height:auto; border-radius:8px; box-shadow:0 12px 32px rgba(0,0,0,0.15); display:block;"
-                muted loop autoplay playsinline
+                style="
+                  width: 100%;
+                  height: auto;
+                  border-radius: 8px;
+                  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
+                  display: block;
+                "
+                muted
+                loop
+                autoplay
+                playsinline
                 class="video"
                 preload="metadata"
                 playsinline
@@ -64,12 +90,13 @@
               >
                 <source src="videos/mb-demo.webm" type="video/webm" />
                 <source src="videos/mb-demo.mp4" type="video/mp4" />
-                Sorry—your browser doesn’t support embedded videos. 
+                Sorry—your browser doesn’t support embedded videos.
               </video>
             </a>
           </div>
           <p>
-            This is a mobile RPG game (live). It's available for download from the alternative
+            This is a mobile RPG game (live). It's available for download from
+            the alternative
             <a
               style="color: blue"
               href="https://www.nutaku.net/games/harem-heroes-mobile-battler"
@@ -81,27 +108,32 @@
           <p>
             I was given numerous front-end related tasks. Among them were:
             <br />
-            - adding new screens and features, following design guidelines, 
-            with proper support for the relevant devices
+            - adding new screens and features, following design guidelines, with
+            proper support for the relevant devices
             <br />
-            - scaling the architecture and creating reusable components for various purposes
+            - scaling the architecture and creating reusable components for
+            various purposes
             <br />
-            - developing real time FE battle system, implementing character animations (with sprite sheets) 
-            and special effects
+            - developing real time FE battle system, implementing character
+            animations (with sprite sheets) and special effects
             <br />
-            - developing reusable sprite sheet animation player, including a version which reads JSON files 
-            with instructions on how to display each frame for the animation
+            - developing reusable sprite sheet animation player, including a
+            version which reads JSON files with instructions on how to display
+            each frame for the animation
             <br />
             - adding various custom animations
             <br />
-            - setting web socket connections - subscribing to channels and listening for events, 
-            then using their payload with the data from BE. Also triggering socket events from FE to BE
+            - setting web socket connections - subscribing to channels and
+            listening for events, then using their payload with the data from
+            BE. Also triggering socket events from FE to BE
             <br />
             - implementing RN portals to set up custom reusable (global) popup
             <br />
-            - developing reusable zoom and pan gesture handler component, with mixed gesture handling (both zoom and pan at the same time)
+            - developing reusable zoom and pan gesture handler component, with
+            mixed gesture handling (both zoom and pan at the same time)
             <br />
-            - applying advanced usage of expo-router navigation, for handling complex navigation scenarios
+            - applying advanced usage of expo-router navigation, for handling
+            complex navigation scenarios
             <br />
           </p>
         </section>
@@ -109,37 +141,63 @@
         <section class="post">
           <h3>Battle System (prototype)</h3>
 
-          <div style="float:right; width:240px; max-width:460px; margin:0 0 1rem 1.5rem;">
+          <div
+            style="
+              float: right;
+              width: 240px;
+              max-width: 460px;
+              margin: 0 0 1rem 1.5rem;
+            "
+          >
             <a
               href="https://www.nutaku.net/games/harem-heroes-mobile-battler"
               target="_blank"
             >
               <video
-                style="width:100%; height:auto; border-radius:8px; box-shadow:0 12px 32px rgba(0,0,0,0.15); display:block;"
-                muted loop autoplay playsinline
+                style="
+                  width: 100%;
+                  height: auto;
+                  border-radius: 8px;
+                  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
+                  display: block;
+                "
+                muted
+                loop
+                autoplay
+                playsinline
                 class="video"
                 preload="metadata"
                 playsinline
                 poster="images/mb-demo.jpg"
               >
-                <source src="videos/mobile-battler-demo-proto.webm" type="video/webm" />
-                <source src="videos/mobile-battler-demo-proto.mp4" type="video/mp4" />
-                Sorry—your browser doesn’t support embedded videos. 
+                <source
+                  src="videos/mobile-battler-demo-proto.webm"
+                  type="video/webm"
+                />
+                <source
+                  src="videos/mobile-battler-demo-proto.mp4"
+                  type="video/mp4"
+                />
+                Sorry—your browser doesn’t support embedded videos.
               </video>
             </a>
           </div>
-          
+
           <p>
-            I developed the FE battle system in coop with the BE team. 
-            Behind the scenes, it is turned based and it relies on "ping-pong" websocket events.
+            I developed the FE battle system in coop with the BE team. Behind
+            the scenes, it is turned based and it relies on "ping-pong"
+            websocket events.
             <br /><br />
             This approach has the following benefits:<br />
             - simplicity: updates are served in portions for each turn.<br />
-            - control: easier to track progress of character actions and animation related processes.<br />
-            - performance: prevention of running too many tasks at the same time.<br />
+            - control: easier to track progress of character actions and
+            animation related processes.<br />
+            - performance: prevention of running too many tasks at the same
+            time.<br />
             <br />
             The main character animations are loaded via sprite sheet player.<br />
-            For the rest of the animations, different techniques and libraries have been used.
+            For the rest of the animations, different techniques and libraries
+            have been used.
           </p>
 
           <p>. . . . . . . . . . . . . . . . . . . . . . . . . . . . . .</p>
@@ -147,12 +205,23 @@
           <!-- <p class="active"><a href="index.html">Back to projects</a></p> -->
         </section>
         <section class="post">
-          <h3>Some more custom animations that I put together for this project...</h3>
-          
-          <div style="float:left; width:380px;; max-width:460px; margin:0 0 0 0;">
+          <h3>
+            Some more custom animations that I put together for this project...
+          </h3>
+
+          <div
+            style="float: left; width: 380px; max-width: 460px; margin: 0 0 0 0"
+          >
             <video
               id="starsVideo"
-              style="width:100%; height:auto; border-radius:8px; box-shadow:0 12px 32px rgba(0,0,0,0.15); display:block; pointer-events:none;"
+              style="
+                width: 100%;
+                height: auto;
+                border-radius: 8px;
+                box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
+                display: block;
+                pointer-events: none;
+              "
               muted
               autoplay
               playsinline
@@ -165,37 +234,45 @@
             </video>
 
             <script>
-            (function () {
-              const v = document.getElementById('starsVideo');
-              const START_AT = 0.7;         // seconds
-              const EPS = 0.08;           // small threshold for timing comparisons
+              (function () {
+                const v = document.getElementById("starsVideo");
+                const START_AT = 0.7; // seconds
+                const EPS = 0.08; // small threshold for timing comparisons
 
-              // Jump to 0.7s once metadata (duration) is known
-              v.addEventListener('loadedmetadata', () => {
-                // Some browsers need a tick before setting currentTime
-                const jump = () => { try { v.currentTime = START_AT; } catch(e){} };
-                jump();
-                // If autoplay already started at 0, enforce the jump on first frames
-                const fixFirstFrames = (e) => {
-                  if (v.currentTime < START_AT - EPS) {
+                // Jump to 0.7s once metadata (duration) is known
+                v.addEventListener(
+                  "loadedmetadata",
+                  () => {
+                    // Some browsers need a tick before setting currentTime
+                    const jump = () => {
+                      try {
+                        v.currentTime = START_AT;
+                      } catch (e) {}
+                    };
                     jump();
-                  } else {
-                    v.removeEventListener('timeupdate', fixFirstFrames);
-                  }
-                };
-                v.addEventListener('timeupdate', fixFirstFrames);
-              }, { once: true });
+                    // If autoplay already started at 0, enforce the jump on first frames
+                    const fixFirstFrames = (e) => {
+                      if (v.currentTime < START_AT - EPS) {
+                        jump();
+                      } else {
+                        v.removeEventListener("timeupdate", fixFirstFrames);
+                      }
+                    };
+                    v.addEventListener("timeupdate", fixFirstFrames);
+                  },
+                  { once: true }
+                );
 
-              // Emulate looping from 0.7s → end → back to 0.7s
-              // (Don't use the "loop" attribute; some browsers loop back to 0)
-              v.addEventListener('timeupdate', () => {
-                if (!isFinite(v.duration) || v.duration === 0) return;
-                if (v.currentTime >= v.duration - EPS) {
-                  v.currentTime = START_AT;
-                  v.play(); // keep it seamless
-                }
-              });
-            })();
+                // Emulate looping from 0.7s → end → back to 0.7s
+                // (Don't use the "loop" attribute; some browsers loop back to 0)
+                v.addEventListener("timeupdate", () => {
+                  if (!isFinite(v.duration) || v.duration === 0) return;
+                  if (v.currentTime >= v.duration - EPS) {
+                    v.currentTime = START_AT;
+                    v.play(); // keep it seamless
+                  }
+                });
+              })();
             </script>
           </div>
 
